@@ -8,11 +8,9 @@ export const GET_PRODUCTS = "GET_PRODUCTS";
 export const local_url = "http://localhost:3001";
 
 
-export function getProducts  () {
+export  function getProducts  () {
     return async function  (dispatch) {
-
-      const {data}= await axios(`${local_url}/shoes`)
-     console.log(data);
+      const {data} = await axios(`${local_url}/shoes`)
       dispatch({
           type: GET_PRODUCTS,
           payload: data,
