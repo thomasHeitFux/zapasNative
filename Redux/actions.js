@@ -1,21 +1,29 @@
 import axios from 'axios';
 
-export const SET_USERNUMBER='SET_USERNUMBER';
+export const SET_USERNUMBER='SET_USERNUMBER'; 
 export const SET_USERNAME='SET_USERNAME';
 export const SET_SHARP='SET_SHARP';
 export const GET_PRODUCTS = "GET_PRODUCTS";
+export const SEARCH_SHOES='SEARCH_SHOES';
 
 export const local_url = "http://localhost:3001";
 
+export const searchShoes =(input)=>{
+    // console.log(input);
+  return({
+      type:SEARCH_SHOES,
+      payload:input
+  })
+}
 
-export  function getProducts  () {
+export  function getProducts () {
     return async function  (dispatch) {
       const {data} = await axios(`${local_url}/shoes`)
+    //   console.log(data);
       dispatch({
           type: GET_PRODUCTS,
           payload: data,
         })
-      
     };
   }
 

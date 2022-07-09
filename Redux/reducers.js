@@ -1,4 +1,4 @@
-import { SET_USERNAME, SET_USERNUMBER, SET_SHARP, GET_PRODUCTS } from './actions'
+import { SET_USERNAME, SET_USERNUMBER, SET_SHARP, GET_PRODUCTS,SEARCH_SHOES } from './actions'
 
 const initialState = {
     name: 'thomas',
@@ -26,7 +26,6 @@ function userReducer(state = initialState, action) {
                 title: e.title,
                 brand: e.brand,
             }));
-            console.log(result)
             return {
                 ...state,
                 allProductsName: result,
@@ -34,6 +33,12 @@ function userReducer(state = initialState, action) {
                 allProducts: action.payload,
                 allProductsCopy: action.payload,
             };
+        case SEARCH_SHOES:
+            const found = state.allProducts.filter(e=>e.title.toLowerCase().includes(action.payload.toLowerCase()))
+            return{
+                ...state,
+                products:found
+            } 
         default: return state
     }
 }
