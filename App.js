@@ -15,7 +15,7 @@ import Retirar from './Components/Order';
 // import map from './Components/map';
 import home from './Components/home';
 
-const fullScreenWidth=Dimensions.get('window').width;
+const fullScreenWidth=Dimensions.get('window').width; 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
